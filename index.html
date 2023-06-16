@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="shortcut icon" href="logo.png">
+  <style>
+    nav span {
+      padding-right: 10px;
+    }
+
+    body {
+      font-family: system, -apple-system, "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Helvetica", "Lucida Grande", "Arial", sans-serif;
+      padding: 0 10px;
+      line-height: 1.4;
+      font-size: 16px;
+      color: #111;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.0;
+    }
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>alert(document.domain)</title>
+</head>
+
+<body style="margin: auto; max-width: 650px">
+  <div style="margin-top: 30px; height: 40px">
+    <h1 style="float: left; margin: 0; padding-right: 10px">alert(<img src="logo.png" style="height: 25px;">)</h1>
+  </div>
+  <hr>
+  
+  <h2>What</h2>
+  <p>
+    This is a collection of some client-side web security challenges I've created.
+    No server source is needed since all challenges work entirely in the browser.
+    Each challenge comes with a solution page which runs a PoC exploit.
+  </p>
+
+  <h2>Why</h2>
+  <p>
+    Over the years, I've created a lot of web challenges for various CTFs.
+    CTFs are a great way to learn security, and many of these challenges aim to encourage players to find creative ways to attack a web application.
+    However, CTFs are time-limited, and challenges go offline after the CTF ends.
+  </p>
+  <p>
+    While server-side challenges are costly for me to host, (some) client-side challenges are free to host.
+    So I've decided to compile some of my client-side challenges here, so that they can be attempted at any time.
+  </p>
+  <hr>
+
+  <h2>DOM XSS</h2>
+  <ul>
+    <li>
+      <a href="./username-generator" target="_blank">Username Generator</a> | <a href="./solutions/username-generator">Solution</a>
+      &#8212; JavaScript namespaces
+    </li>
+  </ul>
+
+  <h2>WebAssembly</h2>
+  <ul>
+    <li>
+      <a href="./wasmabism" target="_blank">Wasmabism</a> | <a download href="./downloads/wasmabism.c" target="_blank">Attachment</a> | <a href="./solutions/wasmabism">Solution</a>
+      &#8212; WebAssembly buffer overflow
+    </li>
+    <li>
+      <a href="./xspwn" target="_blank">XSPwn</a> | <a download href="./downloads/xspwn.c" target="_blank">Attachment</a> | <a href="./solutions/xspwn">Solution</a>
+      &#8212; WebAssembly Use-After-Free
+    </li>
+  </ul>
+
+  <h2>XS-Leaks</h2>
+  <ul>
+    <li>
+      <a href="./pigeon-files" target="_blank">The Pigeon Files</a> | <a href="./solutions/pigeon-files">Solution</a>
+      &#8212; Detecting client-side redirects
+    </li>
+  </ul>
+</body>
+
+</html>

