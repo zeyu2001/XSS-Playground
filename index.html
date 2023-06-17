@@ -3,25 +3,7 @@
 
 <head>
   <link rel="shortcut icon" href="logo.png">
-  <style>
-    nav span {
-      padding-right: 10px;
-    }
-
-    body {
-      font-family: system, -apple-system, "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Helvetica", "Lucida Grande", "Arial", sans-serif;
-      padding: 0 10px;
-      line-height: 1.4;
-      font-size: 16px;
-      color: #111;
-    }
-
-    h1,
-    h2,
-    h3 {
-      line-height: 1.0;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>alert(document.domain)</title>
@@ -53,17 +35,19 @@
   <hr>
 
   <h2>DOM XSS</h2>
+  <p>Gain XSS and pop an alert!</p>
   <ul>
     <li>
-      <a href="./username-generator" target="_blank">Username Generator</a> | <a href="./solutions/username-generator">Solution</a>
+      <a href="https://xss-playground-challenges.vercel.app/username-generator" target="_blank">Username Generator</a> | <a href="./solutions/username-generator">Solution</a>
       &#8212; JavaScript namespaces
     </li>
   </ul>
 
   <h2>WebAssembly</h2>
+  <p>Gain XSS and pop an alert!</p>
   <ul>
     <li>
-      <a href="./wasmabism" target="_blank">Wasmabism</a> | <a download href="./downloads/wasmabism.c" target="_blank">Attachment</a> | <a href="./solutions/wasmabism">Solution</a>
+      <a href="https://xss-playground-challenges.vercel.app/wasmabism" target="_blank">Wasmabism</a> | <a download href="./downloads/wasmabism.c" target="_blank">Attachment</a> | <a href="./solutions/wasmabism">Solution</a>
       &#8212; WebAssembly buffer overflow
     </li>
     <li>
@@ -73,10 +57,19 @@
   </ul>
 
   <h2>XS-Leaks</h2>
+  <p>From a cross-origin site, can you leak the user's secrets?</p>
   <ul>
     <li>
-      <a href="./pigeon-files" target="_blank">The Pigeon Files</a> | <a href="./solutions/pigeon-files">Solution</a>
+      <a href="https://xss-playground-challenges.vercel.app/pigeon-files" target="_blank">The Pigeon Files</a> | <a href="./solutions/pigeon-files">Solution</a>
       &#8212; Detecting client-side redirects
+    </li>
+  </ul>
+
+  <h2>Chrome Extensions</h2>
+  <ul>
+    <li>
+      <a href="https://xss-playground-challenges.vercel.app/charlotte" target="_blank">Charlotte's Web</a> | <a download href="./downloads/charlotte.zip" target="_blank">Attachment</a> | <a href="./solutions/charlotte">Solution</a>
+      &#8212; Prototype pollution to request forgery
     </li>
   </ul>
 </body>

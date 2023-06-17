@@ -1,0 +1,17 @@
+nav span {
+  padding-right: 10px;
+}
+
+body {
+  font-family: system, -apple-system, "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Helvetica", "Lucida Grande", "Arial", sans-serif;
+  padding: 0 10px;
+  line-height: 1.4;
+  font-size: 16px;
+  color: #111;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.0;
+}
